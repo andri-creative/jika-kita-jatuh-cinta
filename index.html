@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#1a0b14" />
+  <title>Jika Kita Tak Pernah Jatuh Cinta 💔</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Plus+Jakarta+Sans:wght@400;600;800&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <button id="music-pill" aria-label="Nyalakan atau matikan musik">
+    <span class="disc-icon">♪</span>
+    <span id="music-label">Musik</span>
+  </button>
+
+  <div id="progress-bar-wrap" aria-hidden="true">
+    <div class="step-dots" id="step-dots"></div>
+    <span id="step-label">1/12</span>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <main id="stage">
+
+    <!-- ============ 1. AMPLOP SEGEL LILIN ============ -->
+    <section class="scene active" id="scene-1" aria-label="Babak 1 Amplop Segel Lilin">
+      <div class="scene-emoji">💌</div>
+      <h1 class="scene-title">Jika Kita Tak Pernah Jatuh Cinta</h1>
+      <p class="scene-sub">Sebuah surat menunggumu. Pecahkan segel lilinnya untuk memulai perjalanan 12 babak hati ini.</p>
+
+      <div class="env-wrap">
+        <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Buka amplop">
+          <div class="env-letter" id="env-letter">
+            <p class="env-quote">“Untuk setiap hati yang sedang mencari jawaban atas luka dan harapannya — kamu tidak sendirian.”</p>
+          </div>
+          <div class="env-pocket">
+            <div class="env-pocket-l"></div>
+            <div class="env-pocket-r"></div>
+            <div class="env-pocket-b"></div>
+          </div>
+          <div class="env-flap" id="env-flap"></div>
+          <div class="env-seal" id="env-seal">🔒</div>
+        </div>
+      </div>
+
+      <p class="status" id="st-1">Klik amplop untuk membuka</p>
+      <button class="btn-main hidden" id="btn-1-next" type="button">Mulai Perjalanan →</button>
+    </section>
+
+    <!-- ============ 2. JAM 18 TAHUN ============ -->
+    <section class="scene" id="scene-2" aria-label="Babak 2 Jam 18 Tahun">
+      <div class="scene-emoji">⏰</div>
+      <h2 class="scene-title">Ketika Usiamu 18 Tahun</h2>
+      <p class="scene-sub">Tap jam dinding antik itu. Setiap ketukan memutar jarum menuju pertanyaan yang sering kamu tanyakan pada langit.</p>
+
+      <div class="clock-wrap">
+        <div class="clock" id="clock" role="button" tabindex="0" aria-label="Tap jam">
+          <div class="clock-face">
+            <span class="hand hour" id="hand-hour"></span>
+            <span class="hand minute" id="hand-minute"></span>
+            <span class="clock-center"></span>
+            <span class="clock-num n12">12</span>
+            <span class="clock-num n3">3</span>
+            <span class="clock-num n6">6</span>
+            <span class="clock-num n9">9</span>
+          </div>
+        </div>
+        <p class="clock-quote hidden" id="clock-quote">“Kapankah giliranku untuk menggandeng dan digandeng?”</p>
+      </div>
+
+      <p class="status" id="st-2">Tap: 0/8</p>
+      <button class="btn-main hidden" id="btn-2-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 3. NOTIFIKASI MALAM ============ -->
+    <section class="scene" id="scene-3" aria-label="Babak 3 Notifikasi Malam">
+      <div class="scene-emoji">📱</div>
+      <h2 class="scene-title">Notifikasi yang Membuatmu Tersenyum</h2>
+      <p class="scene-sub">Tap layar untuk menerima pesan-pesan kecil yang ternyata terasa magis.</p>
+
+      <div class="chat-phone" id="chat-phone">
+        <div class="chat-notch"></div>
+        <div class="chat-screen" id="chat-screen"></div>
+      </div>
+
+      <p class="status" id="st-3">Pesan masuk: 0/5</p>
+      <button class="btn-main hidden" id="btn-3-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 4. MERCUSUAR FRIENDZONE ============ -->
+    <section class="scene" id="scene-4" aria-label="Babak 4 Mercusuar Friendzone">
+      <div class="scene-emoji">🗼</div>
+      <h2 class="scene-title">Cinta Tak Berbalas</h2>
+      <p class="scene-sub">Tekan &amp; tahan tombol selama 2 detik untuk menyalakan mercusuar — tetap bersinar meski lautnya sepi.</p>
+
+      <div class="lighthouse" id="lighthouse">
+        <div class="lh-glow" id="lh-glow"></div>
+        <div class="lh-beam" id="lh-beam"></div>
+        <div class="lh-lamp" id="lh-lamp">🔥</div>
+        <div class="lh-top"></div>
+        <div class="lh-body"><span></span><span></span><span></span></div>
+        <div class="lh-base"></div>
+        <div class="lh-rock"></div>
+      </div>
+
+      <button id="btn-hold" class="btn-hold" type="button">
+        <svg class="hold-ring" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="hold-track" cx="60" cy="60" r="54"></circle>
+          <circle class="hold-fill" id="hold-fill" cx="60" cy="60" r="54"></circle>
+        </svg>
+        <span>Tahan<br>disini</span>
+      </button>
+
+      <p class="status" id="st-4">Cahaya 0%</p>
+      <button class="btn-main hidden" id="btn-4-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 5. HUJAN PATAH HATI ============ -->
+    <section class="scene" id="scene-5" aria-label="Babak 5 Hujan Patah Hati">
+      <div class="scene-emoji">🌧</div>
+      <h2 class="scene-title">Hari Ketika Duniamu Runtuh</h2>
+      <p class="scene-sub">Tangkap 8 tetes hujan yang jatuh — setiap tetes adalah air mata yang perlu kamu izinkan mengalir.</p>
+
+      <div class="canvas-card">
+        <canvas id="rain-canvas" width="600" height="420"></canvas>
+      </div>
+
+      <p class="status" id="st-5">Tertangkap: 0/8</p>
+      <button class="btn-main hidden" id="btn-5-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 6. HAPUS JEJAK SOSMED ============ -->
+    <section class="scene" id="scene-6" aria-label="Babak 6 Hapus Jejak Sosmed">
+      <div class="scene-emoji">🗑</div>
+      <h2 class="scene-title">Menghapus Jejak</h2>
+      <p class="scene-sub">Seret (drag) 3 kartu kenangan ke tong sampah — berikan jarak bagi jiwamu untuk bernapas.</p>
+
+      <div class="trash-stage" id="trash-stage">
+        <div class="mem-cards" id="mem-cards">
+          <div class="mem-card" draggable="true" data-i="0"><span>📸</span><p> Foto Liburan</p></div>
+          <div class="mem-card" draggable="true" data-i="1"><span>💬</span><p>Chat Lama</p></div>
+          <div class="mem-card" draggable="true" data-i="2"><span>🎞</span><p>Video Bareng</p></div>
+        </div>
+        <div class="trash-bin" id="trash-bin" aria-label="Tong sampah">
+          <div class="trash-lid"></div>
+          <div class="trash-body">🗑</div>
+        </div>
+      </div>
+
+      <p class="status" id="st-6">Dihapus: 0/3</p>
+      <button class="btn-main hidden" id="btn-6-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 7. PELUKAN DIRI SENDIRI ============ -->
+    <section class="scene" id="scene-7" aria-label="Babak 7 Pelukan Diri Sendiri">
+      <div class="scene-emoji">🫂</div>
+      <h2 class="scene-title">Mencintai Diri Sendiri</h2>
+      <p class="scene-sub">Tap hati sebanyak 25 kali untuk mengisi cintamu sendiri sebelum mencintai orang lain.</p>
+
+      <div class="heart-tap-wrap">
+        <button id="btn-heart" class="btn-heart" type="button" aria-label="Tap hati">💗</button>
+        <svg class="heart-ring" viewBox="0 0 140 140" aria-hidden="true">
+          <circle class="hr-track" cx="70" cy="70" r="62"></circle>
+          <circle class="hr-fill" id="hr-fill" cx="70" cy="70" r="62"></circle>
+        </svg>
+      </div>
+
+      <p class="self-love-msg hidden" id="self-love-msg">“Jika kamu saja tidak bisa mencintai dirimu sendiri, bagaimana orang lain bisa mencintaimu secara utuh?”</p>
+
+      <p class="status" id="st-7">Tap: 0/25</p>
+      <button class="btn-main hidden" id="btn-7-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 8. BUNGA MEKAR TAKDIR ============ -->
+    <section class="scene" id="scene-8" aria-label="Babak 8 Bunga Mekar Takdir">
+      <div class="scene-emoji">🌸</div>
+      <h2 class="scene-title">Bunga Mekar Pada Musimnya</h2>
+      <p class="scene-sub">Tap kuncup bunga 6 kali — biarkan ia mekar sesuai waktunya, tanpa terburu-buru.</p>
+
+      <div class="flower-wrap">
+        <div class="flower" id="flower">
+          <span class="petal p1"></span><span class="petal p2"></span><span class="petal p3"></span>
+          <span class="petal p4"></span><span class="petal p5"></span><span class="petal p6"></span>
+          <span class="flower-core" id="flower-core" role="button" tabindex="0">🌱</span>
+        </div>
+        <div class="flower-stem"></div>
+        <p class="flower-quote hidden" id="flower-quote">“Jangan terburu-buru — musimmu akan tiba.”</p>
+      </div>
+
+      <p class="status" id="st-8">Tap kuncup: 0/6</p>
+      <button class="btn-main hidden" id="btn-8-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 9. KONSTELASI HATI ============ -->
+    <section class="scene" id="scene-9" aria-label="Babak 9 Konstelasi Hati">
+      <div class="scene-emoji">✨</div>
+      <h2 class="scene-title">Tuhan Tak Pernah Keliru</h2>
+      <p class="scene-sub">Tap 5 bintang berurutan (kiri → kanan) untuk menyambung konstelasi hati di langit malam.</p>
+
+      <div class="constellation-wrap">
+        <svg id="constellation-svg" viewBox="0 0 320 200" aria-hidden="true">
+          <line id="cl-1" x1="60" y1="140" x2="110" y2="90" class="cl-line" />
+          <line id="cl-2" x1="110" y1="90" x2="160" y2="120" class="cl-line" />
+          <line id="cl-3" x1="160" y1="120" x2="220" y2="70" class="cl-line" />
+          <line id="cl-4" x1="220" y1="70" x2="270" y2="110" class="cl-line" />
+          <circle class="star" id="star-0" cx="60" cy="140" r="12" data-i="0" role="button" tabindex="0" />
+          <circle class="star" id="star-1" cx="110" cy="90" r="12" data-i="1" role="button" tabindex="0" />
+          <circle class="star" id="star-2" cx="160" cy="120" r="12" data-i="2" role="button" tabindex="0" />
+          <circle class="star" id="star-3" cx="220" cy="70" r="12" data-i="3" role="button" tabindex="0" />
+          <circle class="star" id="star-4" cx="270" cy="110" r="12" data-i="4" role="button" tabindex="0" />
+        </svg>
+        <p class="constellation-quote hidden" id="constellation-quote">“Segala sesuatu indah pada waktunya.”</p>
+      </div>
+
+      <p class="status" id="st-9">Bintang: 0/5</p>
+      <button class="btn-main hidden" id="btn-9-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 10. PAYUNG BERDUA ============ -->
+    <section class="scene" id="scene-10" aria-label="Babak 10 Payung Berdua">
+      <div class="scene-emoji">☂️</div>
+      <h2 class="scene-title">Bertumbuh Bersama</h2>
+      <p class="scene-sub">Seret payung ke atas dua figur itu sebelum hujan turun — cinta adalah tempat berlindung.</p>
+
+      <div class="umbrella-stage" id="umbrella-stage">
+        <div class="rain-lines" id="rain-lines" aria-hidden="true"></div>
+        <div class="couple" id="couple">
+          <span class="person p-a">🧍</span>
+          <span class="person p-b">🧍‍♀️</span>
+        </div>
+        <div class="umbrella" id="umbrella" role="button" tabindex="0" aria-label="Seret payung ke pasangan">☂️</div>
+      </div>
+
+      <p class="status" id="st-10">Seret payung ke pasangan…</p>
+      <button class="btn-main hidden" id="btn-10-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 11. SURAT PEMBACA ============ -->
+    <section class="scene" id="scene-11" aria-label="Babak 11 Surat Pembaca">
+      <div class="scene-emoji">📜</div>
+      <h2 class="scene-title">Surat untuk Dirimu</h2>
+      <p class="scene-sub">Tulis surat cinta atau doa rahasiamu. Tersimpan hanya di browser-mu sendiri.</p>
+
+      <div class="letter-box">
+        <textarea id="reader-letter" rows="5" placeholder="Curahkan isi hatimu di sini…"></textarea>
+        <button id="btn-save-letter" class="btn-save" type="button">💌 Simpan Surat</button>
+        <p class="letter-status" id="letter-status"></p>
+      </div>
+
+      <p class="status" id="st-11">Surat belum tersimpan</p>
+      <button class="btn-main" id="btn-11-next" type="button">Lanjut →</button>
+    </section>
+
+    <!-- ============ 12. GRAND FINALE ============ -->
+    <section class="scene" id="scene-12" aria-label="Babak 12 Grand Finale">
+      <div class="scene-emoji">🌙</div>
+      <h2 class="scene-title">Istirahatlah</h2>
+      <p class="scene-sub">Perjalanan 12 babak telah selesai. Kamu sudah berjuang begitu keras.</p>
+
+      <canvas id="finale-canvas" width="600" height="360" aria-hidden="true"></canvas>
+
+      <div class="finale-card" id="finale-card">
+        <p class="finale-quote">“Istirahatlah. Kamu sudah berjalan begitu jauh. Hatimu sudah berjuang begitu keras. Sekarang, pejamkan matamu. Semuanya akan baik-baik saja.”</p>
+        <p class="finale-author">— Jika Kita Tak Pernah Jatuh Cinta</p>
+        <div class="finale-actions">
+          <a id="wa-link" class="btn-wa" href="#" target="_blank" rel="noopener">💬 Bagikan via WhatsApp</a>
+          <button id="btn-restart" class="btn-restart" type="button">↻ Ulangi Perjalanan</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <audio id="bg-audio" loop preload="auto" src="angelbaby.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
